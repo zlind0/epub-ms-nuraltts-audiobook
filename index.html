@@ -3,11 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
 <title>EPUB电子书音频生成器</title>
 <link rel="stylesheet" href="./src/style.css">
 </head>
 <body>
 <header class="topbar">
+  <div class="brand" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none">
+      <path d="M5.5 4.5A1.5 1.5 0 0 1 7 3h10.5a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H7a1.5 1.5 0 0 0-1.5 1.5v-16Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      <path d="M9.3 8v4M12 6.4v7.2M14.7 8.8v2.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+  </div>
   <button id="btnOpen" class="btn primary">打开电子书…</button>
   <div class="bookmeta">
     <div id="bookTitle" class="booktitle">未打开书籍</div>

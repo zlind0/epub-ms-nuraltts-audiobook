@@ -114,10 +114,10 @@ function renderTree() {
     const p = state.prog.get(i);
     if (p && p.totalChunks > 0) {
       const f = Math.min(1, p.doneChunks / p.totalChunks);
-      const col = p.phase === "failed" ? "rgba(214,58,58,.30)"
-        : p.phase === "done" ? "rgba(46,160,67,.30)"
-        : p.phase === "skipped" ? "rgba(120,130,140,.30)"
-        : "rgba(11,110,219,.28)";
+      const col = p.phase === "failed" ? "rgba(255,59,48,.28)"
+        : p.phase === "done" ? "rgba(52,199,89,.28)"
+        : p.phase === "skipped" ? "rgba(142,142,147,.26)"
+        : "rgba(10,132,255,.24)";
       row.style.backgroundImage = `linear-gradient(to right, ${col} ${f * 100}%, transparent ${f * 100}%)`;
     }
     const tri = document.createElement("span");
@@ -163,9 +163,11 @@ function renderTree() {
   updateSelInfo();
 }
 function updateSelInfo() {
-  $("selInfo").textContent = state.book
+  const text = state.book
     ? `已选 ${state.selected.size}/${state.book.toc.length} 节 · 默认展开适配(可见≤200,当前深度${state.expandDepth})`
     : "";
+  $("selInfo").textContent = text;
+  $("selInfo").title = text; // 侧边栏窄,悬停看完整统计
   $("btnStart").disabled = !state.book || state.selected.size === 0 || state.running;
 }
 
