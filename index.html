@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EPUB电子书音频生成器</title>
+<link rel="stylesheet" href="./src/style.css">
+</head>
+<body>
+<header class="topbar">
+  <button id="btnOpen" class="btn primary">打开电子书…</button>
+  <div class="bookmeta">
+    <div id="bookTitle" class="booktitle">未打开书籍</div>
+    <div id="bookSub" class="booksub"></div>
+  </div>
+  <div class="topops">
+    <button id="btnAll" class="btn">全选</button>
+    <button id="btnNone" class="btn">全不选</button>
+    <button id="btnExpand" class="btn">展开全部</button>
+    <button id="btnCollapse" class="btn">收起</button>
+  </div>
+</header>
+<main class="layout">
+  <section class="left">
+    <div class="panelhead"><span>目录</span><span id="selInfo" class="muted"></span></div>
+    <div id="tree" class="tree"></div>
+  </section>
+  <section class="right">
+    <div class="panelhead"><span id="prevTitle">预览</span><span id="prevChars" class="muted"></span></div>
+    <div class="prevops">
+      <button id="btnPreview" class="btn" disabled>试听本节</button>
+      <audio id="audio" controls></audio>
+    </div>
+    <div id="preview" class="preview"><div class="muted">左侧点击章节查看正文</div></div>
+  </section>
+</main>
+<footer class="bottombar">
+  <div class="row">
+    <label>输出目录 <input id="outDir" readonly placeholder="选择输出目录"><button id="btnOut" class="btn">选择…</button></label>
+    <label>音色 <select id="voice"></select></label>
+    <label>码率 <select id="bitrate">
+      <option value="32">32k</option><option value="48">48k</option>
+      <option value="64" selected>64k（默认）</option>
+      <option value="96">96k</option><option value="128">128k</option>
+    </select></label>
+  </div>
+  <div class="row">
+    <label>语速 <input id="rate" type="range" min="0.5" max="2" step="0.05" value="1"><span id="rateV">1.00</span></label>
+    <label>音调 <input id="pitch" type="range" min="0.5" max="2" step="0.05" value="1"><span id="pitchV">1.00</span></label>
+    <label>线程池 <input id="threads" type="range" min="1" max="8" step="1" value="4"><span id="threadsV">4</span></label>
+  </div>
+  <div class="row">
+    <button id="btnStart" class="btn primary big" disabled>开始转换</button>
+    <button id="btnCancel" class="btn big" disabled>取消</button>
+    <div id="totalProg" class="totalprog muted"></div>
+  </div>
+  <div id="status" class="status muted"></div>
+</footer>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>

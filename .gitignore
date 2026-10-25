@@ -1,0 +1,11 @@
+build/
+build-*/
+target/
+gen/
+mstts/build/
+src-tauri/resources/mstts/
+tmp/
+dist/
+node_modules/
+.DS_Store
+*.log
